@@ -1,4 +1,32 @@
-.Weather {
+.weather-body {
   font-size: smaller;
   text-indent: 10%;
+}
+
+.weather-search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.weather-search-input-field {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 200px;
+}
+
+.weather-search-button {
+  background-color: #3e8e41;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display:   
+ inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
 }

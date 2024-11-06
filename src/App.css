@@ -21,6 +21,9 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  max-width: 70%;
+  margin: 0 auto;
+  margin-bottom: 2vh;
 }
 
 .App-body {
@@ -29,16 +32,17 @@
   display: flex;
   flex-direction: column;
   text-indent: 5%;
-  justify-content: top;
   font-size: calc(10px + 2vmin);
   color: white;
+  max-width: 70%;
+  margin: 0 auto;
 }
 
 .App-link {
   font-family: 'Roboto', sans-serif;
   font-weight: bold;
   text-transform: uppercase;
-  background-color: #4c93af; /* Green */
+  background-color: #4c93af;
   border: none;
   color: white;
   padding: 15px 32px;
@@ -51,8 +55,11 @@
   border-radius: 5px;
 }
 
+.App-link.active {
+  background-color: #3e8e41;
+}
+
 .App-link:hover {
-  /* Hover styles */
   background-color: #3e8e41;
 }
 
