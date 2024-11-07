@@ -5,11 +5,15 @@ import "./WeatherPage.css"
 const HomePage: React.FC = () => {
   const [city, setCity] = useState('');
   const [weatherData, setWeatherData] = useState<any>(null);
+  const [weatherMap, setWeatherMap] = useState<any>(null);
 
   const handleSearch = async () => {
     try {
-      const data = await WeatherService.getWeatherByCity(city);
+      setWeatherMap(null);
+      const data: any = await WeatherService.getWeatherDataByCity(city);
+      const map = await WeatherService.getWeatherMapByCoordinates(data.coord.lat, data.coord.lon);
       setWeatherData(data);
+      setWeatherMap(map);
     } catch {}
   };
 
@@ -30,13 +34,16 @@ const HomePage: React.FC = () => {
         onChange={(e) => setCity(e.target.value)}/>
         <button className="weather-search-button" onClick={handleSearch}>Get weather</button>
       </div>
-      {weatherData && (
+      {weatherData && weatherMap && (
         <div>
-          <p>Weather in {weatherData.name}:</p>
+          <p>Weather in {weatherData.name} ({weatherData.coord.lat} N, {weatherData.coord.lon} E):</p>
           <div className='weather-body'>
             <p>Temperature: {weatherData.main.temp}°C</p>
-            {/* TODO: autres informations meteo */}
+            <p>Sky: {weatherData.weather[0].description}</p>
+            <p>Wind speed: {weatherData.wind.speed} meter/sec</p>
+            <p>Wind direction: {weatherData.wind.deg}°</p>
           </div>
+          <p>{weatherMap}</p>
         </div>
       )}
     </div>
