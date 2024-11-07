@@ -4,7 +4,7 @@ import WeatherPage from './WeatherPage';
 import "./App.css"
 
 function App() {
-  const [activeLink, setActiveLink] = useState('');
+  const [activeLink, setActiveLink] = useState('weather');
 
   const handleLinkClick = (link: string) => {
     setActiveLink(link);
@@ -14,7 +14,7 @@ function App() {
     <BrowserRouter>
       <div className='App-header'>
         <nav>
-          <Link to="/weather" 
+          <Link to="/" 
           className={`App-link ${activeLink === 'weather' ? 'active' : ''}`}
           onClick={() => handleLinkClick('weather')}>Weather</Link>
           <Link to="/login" 
@@ -24,7 +24,7 @@ function App() {
       </div>
       <div className='App-body'>
         <Routes>
-          <Route path="/weather" element={<WeatherPage/>} />
+          <Route path="/" element={<WeatherPage/>} />
         </Routes>
       </div>
     </BrowserRouter>

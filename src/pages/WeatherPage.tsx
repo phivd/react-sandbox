@@ -76,7 +76,6 @@ const WeatherPage: React.FC = () => {
         value={city} 
         onKeyDown={enterKey} 
         onChange={(e) => setCity(e.target.value)}/>
-        <button className="weather-search-button" onClick={handleSearch}>Get weather</button>
       </div>
       {weatherData && map && (
         <div>
