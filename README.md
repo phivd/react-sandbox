@@ -1,3 +1,7 @@
+# react-sandbox
+
+This project is design as a melting-pot of ideas to experiment React library with TypeScript.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

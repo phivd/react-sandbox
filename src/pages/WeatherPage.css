@@ -1,6 +1,20 @@
 .weather-body {
   font-size: smaller;
   text-indent: 10%;
+  padding-bottom: 30vmin;
+}
+
+.weather-body-description {
+  float: left;
+  width: 55%;
+}
+
+.weather-body-image {
+  float: left;
+}
+
+.weather-map {
+  clear: both;
 }
 
 .weather-search {
@@ -9,7 +23,7 @@
   justify-content: center;
 }
 
-.weather-search-input-field {
+.weather-search-bar {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -23,15 +37,18 @@
   padding: 10px 20px;
   text-align: center;
   text-decoration: none;
-  display:   
- inline-block;
+  display: inline-block;
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 5px;
 }
 
+.weather-search-button:hover {
+  background-color: #267a29;
+}
+
 .leaflet-container {
-  height: 100vh;
+  height: 45vh;
   width: 100wh;
 }
