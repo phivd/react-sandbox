@@ -18,6 +18,12 @@ const WeatherPage: React.FC = () => {
   };
 
   const getWeatherDataByCoordinates = async (lat: string, lon: string) => {
+    lon = String(Number(lon) % 360);
+    if (Number(lon) < -180) {
+      lon = String(Number(lon) + 360);
+    } else if (Number(lon) > 180) {
+      lon = String(Number(lon) - 360);
+    }
     const response = await axios.get(`${BASE_URL_DATA}lat=${lat}&lon=${lon}&appid=${API_KEY}&units=${UNITS}`);
     return response.data;
   };
