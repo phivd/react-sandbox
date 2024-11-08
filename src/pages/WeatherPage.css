@@ -1,0 +1,58 @@
+.weather-body {
+  text-indent: 10%;
+  font-size: smaller;
+  padding-bottom: 30vmin;
+}
+
+.weather-body-description {
+  float: left;
+  width: 55%;
+}
+
+.weather-body-image {
+  float: left;
+}
+
+.weather-map {
+  clear: both;
+}
+
+.weather-search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.weather-search-bar {
+  padding: 6px 80px;
+  font-size: 14px;
+  background-image: url(https://cdn2.hubspot.net/hubfs/4004166/bioticresearch_website_assets/images/search_icon.png);
+  background-repeat: no-repeat;
+  background-position: left center;
+  padding-left: 40px;
+  background-color: #ffffff;
+  border: 1px solid #000;
+}
+
+.weather-search-bar:hover {
+  box-shadow: inset 0 0 0 1px rgb(17, 17, 17)
+}
+
+.leaflet-container {
+  height: 45vh;
+  width: 100wh;
+}
+
+:root {
+  --leaflet-tile-filter: brightness(0.6) invert(1) contrast(3) hue-rotate(200deg) saturate(0.3) brightness(0.7);
+}
+
+@media (prefers-color-scheme: dark) {
+  .leaflet-tile {
+      filter: var(--leaflet-tile-filter, none);
+  }
+
+  .leaflet-container {
+      background: #303030;
+  }
+}
