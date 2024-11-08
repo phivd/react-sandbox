@@ -25,6 +25,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  
 }
 
 .weather-search-bar {
@@ -37,6 +38,7 @@
   margin-top: 2vh;
   background-color: #ffffff;
   border: 1px solid #000;
+  margin-bottom: 2vh;
 }
 
 .weather-search-bar:hover {
