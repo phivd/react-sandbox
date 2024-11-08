@@ -5,9 +5,9 @@ import CircularProgress from "./CircularProgress"
 const SignupPage: React.FC = () => {
     const [signedUp, setSignedup] = useState<string>('');
     const [formData, setFormData] = useState({
-        email: '', // required
-        password: '', // required
-        username: '' // optional
+        email: '',
+        password: '',
+        username: ''
     })
 
     async function handleSubmit(e:any) {

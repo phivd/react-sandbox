@@ -1,4 +1,4 @@
-// Inspired by https://codesandbox.io/p/sandbox/assignment-121-animate-checkmark-solution-jggkm
+// Thanks to https://codesandbox.io/p/sandbox/assignment-121-animate-checkmark-solution-jggkm
 import { motion, useTransform } from "framer-motion"
 
 function CircularProgress({ progress, mark }: any) {

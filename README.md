@@ -2,16 +2,20 @@
 
 This project is design as a melting-pot of ideas to experiment React library with TypeScript.
 
+Works are still in progress. 🚧
+
 ## Pages
 
 ### Weather ⛅
 
-A page displaying the weather of a selected city (with the search bar or the map).
+A page displaying the weather of a city (selected with the search bar or the map).
 It uses APIs from openweathermap.org and openstreetmap.org.
+
+![Weather page](doc/weather_page.png)
 
 ### Signup / Login / User details 🔏
 
-A simple authentification system using json-server as a mock.
+A simple authentication system using json-server as a mock.
 
 To run json-server: 
 
@@ -21,6 +25,10 @@ npm install
 ```
 ./node_modules/.bin/json-server --watch ./mock_auth/db.json -m ./node_modules/json-server-auth -p 8000
 ```
+
+![Login page](doc/login_page.png)
+
+![Account page](doc/account_page.png)
 
 ## Getting Started with Create React App
 

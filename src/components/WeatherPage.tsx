@@ -81,6 +81,7 @@ const WeatherPage: React.FC = () => {
     }
   };
 
+  // Search last city in case of page reload
   useEffect(() => {handleSearch()}, []);
 
   return (
@@ -113,7 +114,7 @@ const WeatherPage: React.FC = () => {
                 </tr>
                 <tr>
                   <td>Wind speed:</td>
-                  <td><i>{weatherData.wind.speed} meter/sec</i></td>
+                  <td><i>{weatherData.wind.speed} km/h</i></td>
                 </tr>
                 <tr>
                   <td>Wind direction:</td>

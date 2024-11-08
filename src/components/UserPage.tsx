@@ -40,9 +40,6 @@ const UserPage = () => {
                             <th></th>
                         </tr>
                         <tr>
-                            <td>User ID:</td><td>{user.id}</td>
-                        </tr>
-                        <tr>
                             <td>Username:</td><td>{user.username}</td>
                         </tr>
                         <tr>

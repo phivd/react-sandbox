@@ -20,6 +20,7 @@ const LoginPage: React.FC = () => {
         if(data.user) {
             setLoggedIn('');
             sessionStorage.setItem('id', data.user.id);
+            // TODO: add usages with the returned token data.accessToken
             window.location.reload();
         } else {
             setLoggedIn(data);
@@ -37,7 +38,7 @@ const LoginPage: React.FC = () => {
             <form className='login-form' onSubmit={e => handleSubmit(e)}>
                 <p><input type='text' placeholder='Email' value={formData.email} name='email' onChange={e => handleChange(e)} ></input></p>
                 <p><input type='password' placeholder='Password' name='password' onChange={e => handleChange(e)} ></input></p>
-                <button className='login-button' type='submit'>Login</button>
+                <button className='login-button' type='submit'>Log in</button>
                 {loggedIn != 'LOGGED' && loggedIn != '' && (
                 <><div className='checkmark'>
                     <motion.div
