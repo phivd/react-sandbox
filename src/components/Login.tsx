@@ -24,10 +24,10 @@ const LoginPage: React.FC = () => {
 
     return (
         <div>
-            <h1>Login Form</h1>
+            <h1>Log in</h1>
             <form className='login-form' onSubmit={e => handleSubmit(e)}>
-                <input type='text' placeholder='Email' value={formData.email} name='email' onChange={e => handleChange(e)} ></input>
-                <input type='text' placeholder='Password' value={formData.password} name='password' onChange={e => handleChange(e)} ></input>
+                <p><input type='text' placeholder='Email' value={formData.email} name='email' onChange={e => handleChange(e)} ></input></p>
+                <p><input type='text' placeholder='Password' value={formData.password} name='password' onChange={e => handleChange(e)} ></input></p>
                 <button className='login-btn' type='submit'>Login</button>
             </form>
         </div>

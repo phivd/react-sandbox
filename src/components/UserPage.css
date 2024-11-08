@@ -1,0 +1,27 @@
+.account-body {
+    font-size: smaller;
+}
+
+.login {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 8vh;
+    text-align: left;
+    margin-top: 2vh;
+}
+
+.signup {
+    display: inline-block;
+    vertical-align: top;
+    text-align: left;
+    margin-top: 2vh;
+}
+
+.vseparator {
+    display: inline-block;
+    border-left: 2px solid rgb(207, 207, 207);
+    height: 30vh;
+    margin-right: 8vh;
+    margin-top: 4vh;
+  }
+  

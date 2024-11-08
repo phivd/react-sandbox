@@ -79,7 +79,8 @@ const WeatherPage: React.FC = () => {
       </div>
       {weatherData && map && (
         <div>
-          <p>Weather in {weatherData.name} ({weatherData.coord.lat} N, {weatherData.coord.lon} E):</p>
+          <p><center>Weather in {weatherData.name} ({weatherData.coord.lat} N, {weatherData.coord.lon} E):</center></p>
+          <center>
           <div className='weather-body'>
             <div className='weather-body-description'>
               <p>Temperature: {weatherData.main.temp}°C</p>
@@ -92,8 +93,9 @@ const WeatherPage: React.FC = () => {
             </div>
           </div>
           <div className='weather-map'>
-            {map}
+            <p>{map}</p>
           </div>
+          </center>
         </div>
       )}
     </div>
