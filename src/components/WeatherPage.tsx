@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { MapContainer, Marker, TileLayer, useMapEvents  } from "react-leaflet";
 import "./WeatherPage.css"
 
 const WeatherPage: React.FC = () => {
-  const [city, setCity] = useState('');
+  sessionStorage.setItem('activePage', "WeatherPage");
+
   const [weatherData, setWeatherData] = useState<any>(null);
   const [map, setMap] = useState<any>(null);
 
@@ -31,6 +32,8 @@ const WeatherPage: React.FC = () => {
   function MapEvent () {
     useMapEvents({
       async click(e: any) {
+        sessionStorage.setItem('cityLat', e.latlng.lat)
+        sessionStorage.setItem('cityLon', e.latlng.lng)
         const data: any = await getWeatherDataByCoordinates(e.latlng.lat, e.latlng.lng)
         const map = await getMapByCoordinates(e.latlng.lat, e.latlng.lng);
         setWeatherData(data);
@@ -53,8 +56,16 @@ const WeatherPage: React.FC = () => {
 
   const handleSearch = async () => {
     try {
+      const city = sessionStorage.getItem('city');
+      const cityLat = sessionStorage.getItem('cityLat');
+      const cityLon = sessionStorage.getItem('cityLon');
+      var data: any;
+      if (cityLat && cityLon) {
+        data = await getWeatherDataByCoordinates(cityLat, cityLon)
+      } else if (city) {
+        data = await getWeatherDataByCity(city);
+      }
       setMap(null);
-      const data: any = await getWeatherDataByCity(city);
       const map = await getMapByCoordinates(data.coord.lat, data.coord.lon);
       setWeatherData(data);
       setMap(map);
@@ -63,9 +74,14 @@ const WeatherPage: React.FC = () => {
 
   const enterKey = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
+      sessionStorage.removeItem('cityLat');
+      sessionStorage.removeItem('cityLon');
+      setMap(null);
       handleSearch()
     }
   };
+
+  useEffect(() => {handleSearch()}, []);
 
   return (
     <div>
@@ -73,27 +89,46 @@ const WeatherPage: React.FC = () => {
         <input type="text" 
         placeholder="Enter the city" 
         className="weather-search-bar" 
-        value={city} 
         onKeyDown={enterKey} 
-        onChange={(e) => setCity(e.target.value)}/>
+        onChange={(e) => sessionStorage.setItem('city', e.target.value)}/>
       </div>
       {weatherData && map && (
         <div>
-          <p>Weather in {weatherData.name} ({weatherData.coord.lat} N, {weatherData.coord.lon} E):</p>
+          <p><center>Weather in {weatherData.name} ({weatherData.coord.lat} N, {weatherData.coord.lon} E):</center></p>
+          <center>
           <div className='weather-body'>
             <div className='weather-body-description'>
-              <p>Temperature: {weatherData.main.temp}°C</p>
-              <p>Sky: {weatherData.weather[0].description}</p>
-              <p>Wind speed: {weatherData.wind.speed} meter/sec</p>
-              <p>Wind direction: {weatherData.wind.deg}°</p>
+              <table style={{minWidth:'40vh'}}>
+                <tr>
+                  <th></th>
+                  <th></th>
+                </tr>
+                <tr>
+                  <td>Temperature:</td>
+                  <td><i>{weatherData.main.temp}°C</i></td>
+                </tr>
+                <tr>
+                  <td>Sky:</td>
+                  <td><i>{weatherData.weather[0].description}</i></td>
+                </tr>
+                <tr>
+                  <td>Wind speed:</td>
+                  <td><i>{weatherData.wind.speed} meter/sec</i></td>
+                </tr>
+                <tr>
+                  <td>Wind direction:</td>
+                  <td><i>{weatherData.wind.deg}°</i></td>
+                </tr>
+              </table>
             </div>
             <div className='weather-body-image'>
               <img src={`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@4x.png`}/>
             </div>
           </div>
           <div className='weather-map'>
-            {map}
+            <p><i style={{fontSize: 'small'}}>Click on the map to change the weather location.</i>{map}</p>
           </div>
+          </center>
         </div>
       )}
     </div>

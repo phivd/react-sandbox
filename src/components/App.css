@@ -26,7 +26,7 @@
 
 .App-link {
   font-family: 'Roboto', sans-serif;
-  border: 2px solid rgb(19, 19, 19);
+  border: 1px solid rgb(235, 235, 235);
   font-weight: bold;
   text-transform: uppercase;
   color: white;
@@ -41,13 +41,13 @@
 }
 
 .App-link.active {
-  border: 2px solid rgb(19, 19, 19);
+  border: 1px solid rgb(19, 19, 19);
   color: #050505;
   background-color: #f1f1f1;
 }
 
 .App-link:hover {
-  border: 2px solid rgb(19, 19, 19);
+  border: 1px solid rgb(19, 19, 19);
   color: #050505;
   background-color: #f1f1f1;
 }

@@ -1,16 +1,20 @@
 .weather-body {
-  text-indent: 10%;
   font-size: smaller;
-  padding-bottom: 30vmin;
 }
 
 .weather-body-description {
-  float: left;
-  width: 55%;
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 20vh;
+  text-align: left;
+  margin-top: 2vh;
 }
 
 .weather-body-image {
-  float: left;
+  display: inline-block;
+  vertical-align: top;
+  text-align: left;
+  margin-top: 2vh;
 }
 
 .weather-map {
@@ -21,17 +25,20 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  
 }
 
 .weather-search-bar {
-  padding: 6px 80px;
+  padding: 6px 110px;
   font-size: 14px;
   background-image: url(https://cdn2.hubspot.net/hubfs/4004166/bioticresearch_website_assets/images/search_icon.png);
   background-repeat: no-repeat;
   background-position: left center;
   padding-left: 40px;
+  margin-top: 2vh;
   background-color: #ffffff;
   border: 1px solid #000;
+  margin-bottom: 2vh;
 }
 
 .weather-search-bar:hover {
@@ -40,7 +47,7 @@
 
 .leaflet-container {
   height: 45vh;
-  width: 100wh;
+  max-width: 80vh;
 }
 
 :root {

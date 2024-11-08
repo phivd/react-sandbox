@@ -1,0 +1,63 @@
+.account-body {
+    font-size: smaller;
+}
+
+.account-details {
+    display: inline-block;
+    vertical-align: top;
+    text-align: left;
+}
+
+.login {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 8vh;
+    text-align: left;
+    margin-top: 2vh;
+}
+
+.signup {
+    display: inline-block;
+    vertical-align: top;
+    text-align: left;
+    margin-top: 2vh;
+}
+
+.vseparator {
+    display: inline-block;
+    border-left: 2px solid rgb(207, 207, 207);
+    height: 30vh;
+    margin-right: 8vh;
+    margin-top: 4vh;
+}
+  
+.login-button {
+    vertical-align: top;
+    background-color: transparent;
+    font-family: 'Roboto', sans-serif;
+    border: 1px solid rgb(235, 235, 235);
+    font-weight: bold;
+    text-transform: uppercase;
+    color: rgb(243, 243, 243);
+    padding: 8px 38px;
+    text-align: center;
+    text-decoration: none; 
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer; 
+    border-radius: 5px;
+    margin-top: 1vh;
+}
+
+.login-button:hover {
+    border: 1px solid rgb(19, 19, 19);
+    color: #050505;
+    background-color: #f1f1f1;
+}
+
+.checkmark {
+    padding: 0px 20px;
+    text-align: center;
+    display: inline-block;
+    margin-top: 1vh;
+}
