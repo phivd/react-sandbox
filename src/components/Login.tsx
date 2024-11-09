@@ -1,8 +1,9 @@
 import { useState } from "react"
 import { motion, useMotionValue } from "framer-motion"
+import PropTypes from "prop-types"
 import CircularProgress from "./CircularProgress"
 
-const LoginPage: React.FC = () => {    
+const LoginPage = ({setUserId}:any) => {    
     const [loggedIn, setLoggedIn] = useState<string>('');
     const [formData, setFormData] = useState({
         email: '',
@@ -19,9 +20,9 @@ const LoginPage: React.FC = () => {
         const data = await response.json();
         if(data.user) {
             setLoggedIn('');
-            sessionStorage.setItem('id', data.user.id);
-            // TODO: add usages with the returned token data.accessToken
-            window.location.reload();
+            setUserId(data.user.id);
+            sessionStorage.setItem('userId', data.user.id)
+            sessionStorage.setItem('userToken', data.accessToken)
         } else {
             setLoggedIn(data);
         }
@@ -39,7 +40,7 @@ const LoginPage: React.FC = () => {
                 <p><input type='text' placeholder='Email' value={formData.email} name='email' onChange={e => handleChange(e)} ></input></p>
                 <p><input type='password' placeholder='Password' name='password' onChange={e => handleChange(e)} ></input></p>
                 <button className='login-button' type='submit'>Log in</button>
-                {loggedIn != 'LOGGED' && loggedIn != '' && (
+                {loggedIn !== 'LOGGED' && loggedIn !== '' && (
                 <><div className='checkmark'>
                     <motion.div
                         initial={{ x: 0 }}
@@ -54,6 +55,10 @@ const LoginPage: React.FC = () => {
             </form>
         </div>
     )
+}
+
+LoginPage.propTypes = {
+    setUserId: PropTypes.func.isRequired
 }
 
 export default LoginPage

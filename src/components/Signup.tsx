@@ -38,7 +38,7 @@ const SignupPage: React.FC = () => {
                 <p><input type='text' placeholder='Email' value={formData.email} name='email' onChange={e => handleChange(e)} ></input></p>
                 <p><input type='password' placeholder='Password' name='password' onChange={e => handleChange(e)} ></input></p>
                 <button className='login-button' type='submit'>Sign Up</button>
-                {signedUp == 'SIGNED' && (
+                {signedUp === 'SIGNED' && (
                 <div className='checkmark'>
                     <motion.div
                         initial={{ x: 0 }}
@@ -49,7 +49,7 @@ const SignupPage: React.FC = () => {
                     <CircularProgress progress={progress} mark='check' />
                 </div>
                 )}
-                {signedUp != 'SIGNED' && signedUp != ''  && (
+                {signedUp !== 'SIGNED' && signedUp !== ''  && (
                 <><div className='checkmark'>
                     <motion.div
                         initial={{ x: 0 }}
